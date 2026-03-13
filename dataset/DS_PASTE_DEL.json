@@ -1,0 +1,19 @@
+{
+	"name": "DS_PASTE_DEL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DS_PASTE_DEL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "output120326"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
