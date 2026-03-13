@@ -1,0 +1,189 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfnewsqladls"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
+		},
+		"LS_ADLS_PARQUET_NEW_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_PARQUET_NEW'"
+		},
+		"LS_PARQUET_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_PARQUET'"
+		},
+		"LS_SQL_PARQUET_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_PARQUET'"
+		},
+		"LS_THIRD_SQL_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_THIRD_SQL'"
+		},
+		"S_NEWWW_SQL_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'S_NEWWW_SQL'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsthirdtry.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsthirdtry.dfs.core.windows.net/"
+		},
+		"LS_ADLS_PARQUET_NEW_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsthirdtry.dfs.core.windows.net/"
+		},
+		"LS_PARQUET_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsthirdtry.dfs.core.windows.net/"
+		},
+		"LS_SQL_PARQUET_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQL_PARQUET_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorksLT2025"
+		},
+		"LS_SQL_PARQUET_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "SQLEXPRESS"
+		},
+		"LS_THIRD_SQL_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"LS_THIRD_SQL_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorksLT2025"
+		},
+		"LS_THIRD_SQL_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "SQLEXPRESS"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://retoolapi.dev/5yDVOt/data"
+		},
+		"S_NEWWW_SQL_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"S_NEWWW_SQL_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorksLT2025"
+		},
+		"S_NEWWW_SQL_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "SQLEXPRESS"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfnewsqladls_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"AzureDataLakeStorage2_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
+					},
+					"LS_ADLS_PARQUET_NEW_accountKey": {
+						"value": "[parameters('LS_ADLS_PARQUET_NEW_accountKey')]"
+					},
+					"LS_PARQUET_accountKey": {
+						"value": "[parameters('LS_PARQUET_accountKey')]"
+					},
+					"LS_SQL_PARQUET_password": {
+						"value": "[parameters('LS_SQL_PARQUET_password')]"
+					},
+					"LS_THIRD_SQL_password": {
+						"value": "[parameters('LS_THIRD_SQL_password')]"
+					},
+					"S_NEWWW_SQL_password": {
+						"value": "[parameters('S_NEWWW_SQL_password')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage2_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
+					},
+					"LS_ADLS_PARQUET_NEW_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_PARQUET_NEW_properties_typeProperties_url')]"
+					},
+					"LS_PARQUET_properties_typeProperties_url": {
+						"value": "[parameters('LS_PARQUET_properties_typeProperties_url')]"
+					},
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"LS_SQL_PARQUET_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQL_PARQUET_properties_typeProperties_server')]"
+					},
+					"LS_SQL_PARQUET_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQL_PARQUET_properties_typeProperties_database')]"
+					},
+					"LS_SQL_PARQUET_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQL_PARQUET_properties_typeProperties_userName')]"
+					},
+					"LS_THIRD_SQL_properties_typeProperties_server": {
+						"value": "[parameters('LS_THIRD_SQL_properties_typeProperties_server')]"
+					},
+					"LS_THIRD_SQL_properties_typeProperties_database": {
+						"value": "[parameters('LS_THIRD_SQL_properties_typeProperties_database')]"
+					},
+					"LS_THIRD_SQL_properties_typeProperties_userName": {
+						"value": "[parameters('LS_THIRD_SQL_properties_typeProperties_userName')]"
+					},
+					"S_NEWWW_SQL_properties_typeProperties_server": {
+						"value": "[parameters('S_NEWWW_SQL_properties_typeProperties_server')]"
+					},
+					"S_NEWWW_SQL_properties_typeProperties_database": {
+						"value": "[parameters('S_NEWWW_SQL_properties_typeProperties_database')]"
+					},
+					"S_NEWWW_SQL_properties_typeProperties_userName": {
+						"value": "[parameters('S_NEWWW_SQL_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
