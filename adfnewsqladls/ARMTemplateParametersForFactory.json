@@ -11,7 +11,22 @@
 		"AzureDataLakeStorage2_accountKey": {
 			"value": ""
 		},
+		"DS_PASTE_DEL_accountKey": {
+			"value": ""
+		},
 		"LS_ADLS_PARQUET_NEW_accountKey": {
+			"value": ""
+		},
+		"LS_COPY_DEL_connectionString": {
+			"value": ""
+		},
+		"LS_DEL_connectionString": {
+			"value": ""
+		},
+		"LS_DEL_CPY_connectionString": {
+			"value": ""
+		},
+		"LS_DEL_PASTE_connectionString": {
 			"value": ""
 		},
 		"LS_PARQUET_accountKey": {
@@ -30,6 +45,9 @@
 			"value": "https://adlsthirdtry.dfs.core.windows.net/"
 		},
 		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://adlsthirdtry.dfs.core.windows.net/"
+		},
+		"DS_PASTE_DEL_properties_typeProperties_url": {
 			"value": "https://adlsthirdtry.dfs.core.windows.net/"
 		},
 		"LS_ADLS_PARQUET_NEW_properties_typeProperties_url": {

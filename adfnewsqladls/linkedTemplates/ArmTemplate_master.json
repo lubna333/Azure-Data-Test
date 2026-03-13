@@ -15,9 +15,29 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
 		},
+		"DS_PASTE_DEL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'DS_PASTE_DEL'"
+		},
 		"LS_ADLS_PARQUET_NEW_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_PARQUET_NEW'"
+		},
+		"LS_COPY_DEL_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_COPY_DEL'"
+		},
+		"LS_DEL_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_DEL'"
+		},
+		"LS_DEL_CPY_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_DEL_CPY'"
+		},
+		"LS_DEL_PASTE_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_DEL_PASTE'"
 		},
 		"LS_PARQUET_accountKey": {
 			"type": "secureString",
@@ -40,6 +60,10 @@
 			"defaultValue": "https://adlsthirdtry.dfs.core.windows.net/"
 		},
 		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsthirdtry.dfs.core.windows.net/"
+		},
+		"DS_PASTE_DEL_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsthirdtry.dfs.core.windows.net/"
 		},
@@ -124,8 +148,23 @@
 					"AzureDataLakeStorage2_accountKey": {
 						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
 					},
+					"DS_PASTE_DEL_accountKey": {
+						"value": "[parameters('DS_PASTE_DEL_accountKey')]"
+					},
 					"LS_ADLS_PARQUET_NEW_accountKey": {
 						"value": "[parameters('LS_ADLS_PARQUET_NEW_accountKey')]"
+					},
+					"LS_COPY_DEL_connectionString": {
+						"value": "[parameters('LS_COPY_DEL_connectionString')]"
+					},
+					"LS_DEL_connectionString": {
+						"value": "[parameters('LS_DEL_connectionString')]"
+					},
+					"LS_DEL_CPY_connectionString": {
+						"value": "[parameters('LS_DEL_CPY_connectionString')]"
+					},
+					"LS_DEL_PASTE_connectionString": {
+						"value": "[parameters('LS_DEL_PASTE_connectionString')]"
 					},
 					"LS_PARQUET_accountKey": {
 						"value": "[parameters('LS_PARQUET_accountKey')]"
@@ -144,6 +183,9 @@
 					},
 					"AzureDataLakeStorage2_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
+					},
+					"DS_PASTE_DEL_properties_typeProperties_url": {
+						"value": "[parameters('DS_PASTE_DEL_properties_typeProperties_url')]"
 					},
 					"LS_ADLS_PARQUET_NEW_properties_typeProperties_url": {
 						"value": "[parameters('LS_ADLS_PARQUET_NEW_properties_typeProperties_url')]"
@@ -184,6 +226,26 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "adfnewsqladls_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfnewsqladls_ArmTemplate_0')]"
+			]
 		}
 	]
 }
