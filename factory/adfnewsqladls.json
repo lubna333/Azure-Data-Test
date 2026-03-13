@@ -1,0 +1,9 @@
+{
+	"name": "adfnewsqladls",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "83bd99b5-0b10-47b2-b994-2ef8682be579",
+		"tenantId": "f4ee4c08-a39d-4790-bda9-c3fc5d49ca6b"
+	}
+}
