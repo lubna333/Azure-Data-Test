@@ -1,0 +1,42 @@
+{
+	"name": "PL_SQL_SP",
+	"properties": {
+		"activities": [
+			{
+				"name": "SP_INSERTINPUT",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InsertCustomer]",
+					"storedProcedureParameters": {
+						"CustomerID": {
+							"value": "12",
+							"type": "Int32"
+						},
+						"FirstName": {
+							"value": "Lubna",
+							"type": "String"
+						},
+						"LastName": {
+							"value": "Shaikh",
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "SqlServer1",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
