@@ -11,7 +11,34 @@
 		"AzureDataLakeStorage2_accountKey": {
 			"value": ""
 		},
+		"DS7_BLOB_SQL_CSV_connectionString": {
+			"value": ""
+		},
 		"DS_PASTE_DEL_accountKey": {
+			"value": ""
+		},
+		"LS7_ADLS_CSV_password": {
+			"value": ""
+		},
+		"LS7_ADLS_CSV_OUTPUT_password": {
+			"value": ""
+		},
+		"LS7_ADLS_CSV_OUTPUT1_connectionString": {
+			"value": ""
+		},
+		"LS7_AUDITLOG_SUCCESS_password": {
+			"value": ""
+		},
+		"LS7_AUDIT_SUCCESSLOG_password": {
+			"value": ""
+		},
+		"LS7_CSV_Errorlog_password": {
+			"value": ""
+		},
+		"LS7_SQL_TABLE_INPUT_password": {
+			"value": ""
+		},
+		"LS7_SQL_TABLE_INPUT1_password": {
 			"value": ""
 		},
 		"LS_ADLS_PARQUET_NEW_accountKey": {
@@ -41,6 +68,9 @@
 		"S_NEWWW_SQL_password": {
 			"value": ""
 		},
+		"SqlServer1_password": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://adlsthirdtry.dfs.core.windows.net/"
 		},
@@ -49,6 +79,69 @@
 		},
 		"DS_PASTE_DEL_properties_typeProperties_url": {
 			"value": "https://adlsthirdtry.dfs.core.windows.net/"
+		},
+		"LS7_ADLS_CSV_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS7_ADLS_CSV_properties_typeProperties_database": {
+			"value": "master"
+		},
+		"LS7_ADLS_CSV_properties_typeProperties_userName": {
+			"value": "SQLEXPRESS"
+		},
+		"LS7_ADLS_CSV_OUTPUT_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS7_ADLS_CSV_OUTPUT_properties_typeProperties_database": {
+			"value": "master"
+		},
+		"LS7_ADLS_CSV_OUTPUT_properties_typeProperties_userName": {
+			"value": "SQLEXPRESS"
+		},
+		"LS7_AUDITLOG_SUCCESS_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS7_AUDITLOG_SUCCESS_properties_typeProperties_database": {
+			"value": "master"
+		},
+		"LS7_AUDITLOG_SUCCESS_properties_typeProperties_userName": {
+			"value": "SQLEXPRESS"
+		},
+		"LS7_AUDIT_SUCCESSLOG_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS7_AUDIT_SUCCESSLOG_properties_typeProperties_database": {
+			"value": "master"
+		},
+		"LS7_AUDIT_SUCCESSLOG_properties_typeProperties_userName": {
+			"value": "SQLEXPRESS"
+		},
+		"LS7_CSV_Errorlog_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS7_CSV_Errorlog_properties_typeProperties_database": {
+			"value": "master"
+		},
+		"LS7_CSV_Errorlog_properties_typeProperties_userName": {
+			"value": "SQLEXPRESS"
+		},
+		"LS7_SQL_TABLE_INPUT_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS7_SQL_TABLE_INPUT_properties_typeProperties_database": {
+			"value": "AdventureWorksLT2025"
+		},
+		"LS7_SQL_TABLE_INPUT_properties_typeProperties_userName": {
+			"value": "SQLEXPRESS"
+		},
+		"LS7_SQL_TABLE_INPUT1_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS7_SQL_TABLE_INPUT1_properties_typeProperties_database": {
+			"value": "master"
+		},
+		"LS7_SQL_TABLE_INPUT1_properties_typeProperties_userName": {
+			"value": "SQLEXPRESS"
 		},
 		"LS_ADLS_PARQUET_NEW_properties_typeProperties_url": {
 			"value": "https://adlsthirdtry.dfs.core.windows.net/"
@@ -84,6 +177,15 @@
 			"value": "AdventureWorksLT2025"
 		},
 		"S_NEWWW_SQL_properties_typeProperties_userName": {
+			"value": "SQLEXPRESS"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "master"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
 			"value": "SQLEXPRESS"
 		},
 		"containerUri": {
