@@ -1,0 +1,21 @@
+{
+	"name": "LS7_CSV_Errorlog",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "localhost\\SQLEXPRESS",
+			"database": "master",
+			"encrypt": "optional",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "SQLEXPRESS",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2MWIwY2VlOS1mM2QzLTQ4NjItOGY3Yy0yMzZiNjk1OTY0YzYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
