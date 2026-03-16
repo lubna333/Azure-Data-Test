@@ -1,0 +1,42 @@
+{
+	"name": "DS7_SQL_TABLE_INPUT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS7_SQL_TABLE_INPUT1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "loadid",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "tablename",
+				"type": "varchar"
+			},
+			{
+				"name": "loadstatus",
+				"type": "varchar"
+			},
+			{
+				"name": "dataread",
+				"type": "varchar"
+			},
+			{
+				"name": "Errorid",
+				"type": "varchar"
+			},
+			{
+				"name": "errormessage",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "audit",
+			"table": "copylog"
+		}
+	}
+}

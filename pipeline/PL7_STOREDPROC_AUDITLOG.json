@@ -1,0 +1,158 @@
+{
+	"name": "PL7_STOREDPROC_AUDITLOG",
+	"properties": {
+		"activities": [
+			{
+				"name": "COPY_SQL_CSV",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS7_SQL_TABLE_INPUT",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS7_ADLS_CSV_OUTPUT",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "usp_audit_successlog",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "COPY_SQL_CSV",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[audit].[loadstatus]",
+					"storedProcedureParameters": {
+						"dataread": {
+							"value": "@activity('COPY_SQL_CSV').output.dataRead",
+							"type": "String"
+						},
+						"errorid": {
+							"value": null,
+							"type": "String"
+						},
+						"errormessage": {
+							"value": null,
+							"type": "String"
+						},
+						"loadstatus": {
+							"value": "@activity('COPY_SQL_CSV').output.executionDetails[0].status",
+							"type": "String"
+						},
+						"TableName": {
+							"value": "@'audit.copylog'",
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS7_AUDIT_SUCCESSLOG",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "usp_audit_errorlog",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "COPY_SQL_CSV",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[audit].[loadstatus]",
+					"storedProcedureParameters": {
+						"dataread": {
+							"value": "@activity('COPY_SQL_CSV').output.errors[0].code",
+							"type": "String"
+						},
+						"errorid": {
+							"value": "@activity('COPY_SQL_CSV').output.errors[0].code",
+							"type": "String"
+						},
+						"errormessage": {
+							"value": "@activity('COPY_SQL_CSV').output.errors[0].message",
+							"type": "String"
+						},
+						"loadstatus": {
+							"value": "@activity('COPY_SQL_CSV').output.errors[0].code",
+							"type": "String"
+						},
+						"TableName": {
+							"value": "@'audit.copylog'",
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS7_ADLS_CSV",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	}
+}

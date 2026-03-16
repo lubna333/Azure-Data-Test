@@ -1,0 +1,22 @@
+{
+	"name": "DS7_ADLS_CSV_OUTPUT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS7_ADLS_CSV_OUTPUT1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "outputadlscsv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
